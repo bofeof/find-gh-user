@@ -1,0 +1,28 @@
+1. npm install -D typescript
+
+2. создаем ts-конфиг .\node_modules\.bin\tsc --init
+
+или npx tsc --init
+
+3. настраиваем конфиг:
+расскомментить "outDir": "dist",  
+
+после ключа compilerOptions добавить:
+  "include": ["src"], //из какой папки берем файлы для компиляции
+  "exclude": ["node_modules"] //исключаем
+
+  4.в package.json добавить
+    "scripts": {
+    "start": "tsc --watch"}
+
+
+можно посмотреть доп команды
+
+ .\node_modules\.bin\tsc --help
+
+ запустить другой конфиг 
+.\node_modules\.bin\tsc -p .\tsconfig.json
+
+
+React + ts
+yarn create react-app . --template typescript
