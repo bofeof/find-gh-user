@@ -8,8 +8,8 @@ export type GithubUser = {
   location: string;
   email: string;
   bio: string;
-  twitter_username: string;
-  public_repos: number;
+  twitter_username: string | null;
+  repos: number;
   followers: number;
   following: number;
   created_at: string;
@@ -31,7 +31,7 @@ export type LocalGithubUser = {
   email: string;
   bio: string;
   twitter: string;
-  public: number;
+  repos: number;
   followers: number;
   following: number;
   created: string;
