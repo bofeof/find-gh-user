@@ -10,7 +10,7 @@ interface SearchProps {
 
 // можно описать явно инпут-поля формы с типом
 type FormFields = {
-  userName: HTMLInputElement;
+  username: HTMLInputElement;
 };
 
 const Search = ({ hasError, onSubmit }: SearchProps) => {
@@ -20,8 +20,8 @@ const Search = ({ hasError, onSubmit }: SearchProps) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement & FormFields>) => {
     event.preventDefault();
-    const text = event.currentTarget.userName.value;
-    if (text) {
+    const text = event.currentTarget.username.value;
+    if (text.trim()) {
       onSubmit(text);
       event.currentTarget.reset();
     }
@@ -36,7 +36,7 @@ const Search = ({ hasError, onSubmit }: SearchProps) => {
         <input
           type="text"
           id="searh"
-          name="name"
+          name="username"
           placeholder="Search Github username..."
           className={styles.textField}
         />
