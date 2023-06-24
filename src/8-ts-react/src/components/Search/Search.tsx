@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import styles from './Search.module.scss';
 
 import { ReactComponent as SearchIcon } from 'assets/icon-search.svg';
@@ -9,17 +8,22 @@ interface SearchProps {
   onSubmit: (text: string) => void;
 }
 
-const Search = ({ hasError, onSubmit }: SearchProps) => {
-  const searchRef = useRef<HTMLInputElement | null>(null);
+// можно описать явно инпут-поля формы с типом
+type FormFields = {
+  userName: HTMLInputElement;
+};
 
-  const handleSubmit = (event: React.FormEvent) => {
+const Search = ({ hasError, onSubmit }: SearchProps) => {
+  // React.FormEvent<HTMLFormElement & FormFields> - форма HTMLFormElement помимо всего
+  // будет содержать поля из FormFields, можно обращаться к полю через точку и получать данные
+  // это все попадет в currentTarget.Key.value
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement & FormFields>) => {
     event.preventDefault();
-    const text = searchRef.current ? searchRef.current.value : '';
+    const text = event.currentTarget.userName.value;
     if (text) {
       onSubmit(text);
-      if (searchRef.current) {
-        searchRef.current.value = '';
-      }
+      event.currentTarget.reset();
     }
   };
 
@@ -30,7 +34,6 @@ const Search = ({ hasError, onSubmit }: SearchProps) => {
           <SearchIcon />
         </label>
         <input
-          ref={searchRef}
           type="text"
           id="searh"
           name="name"
