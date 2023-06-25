@@ -11,4 +11,9 @@
   &:hover {
     background-color: var(--main-color-hover);
   }
+
+  @media (max-width: 767px) {
+    padding: 10px 14px;
+    font-size: 0.8rem;
+  }
 }

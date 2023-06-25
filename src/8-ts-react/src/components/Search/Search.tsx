@@ -40,9 +40,9 @@ const Search = ({ hasError, onSubmit }: SearchProps) => {
           placeholder="Search Github username..."
           className={styles.textField}
         />
-        {hasError && <span className={styles.error}>No result</span>}
         <Button>Search</Button>
       </div>
+      {hasError && <span className={styles.error}>No result</span>}
     </form>
   );
 };

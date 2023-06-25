@@ -1,6 +1,8 @@
 .container {
   width: 100%;
   padding: 0 24px;
+  margin: 0 auto;
+  box-sizing: border-box;
 
   @media (min-width: 767px) {
     width: 734px;

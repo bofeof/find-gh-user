@@ -36,9 +36,10 @@ function App() {
   return (
     <Container>
       <TheHeader />
-      <Search hasError={!user} onSubmit={fetchUser} />
-
-      {user && <UserCard {...user} />}
+      <main>
+        <Search hasError={!user} onSubmit={fetchUser} />
+        {user && <UserCard {...user} />}
+      </main>
     </Container>
   );
 }
